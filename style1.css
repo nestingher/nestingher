@@ -169,7 +169,7 @@ nav {
 /* --- Hero Section --- */
 #hero {
     /* Placeholder image from Unsplash - replace with your own! */
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('pregnant-woman-holding-baby-bump (1).jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image.jpg');
     background-size: cover;
     background-position: center 30%;
     text-align: center;
