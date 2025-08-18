@@ -201,6 +201,7 @@
       <div class="progress-bar"><div class="progress-bar-fill"></div></div>
       <div class="progress-step">5</div>
     </div>
+<form id="surveyForm" action="https://script.google.com/macros/s/AKfycbw8x-vbU0q9bpnxbj-EVTqPR0WrPzCip9lRxDvUtkFk888B9NR_PAYFH0DVegNNZ2G1zw/exec" method="POST" target="hidden_iframe">
 
     <!-- Sections -->
     <div id="form-content">
@@ -358,6 +359,9 @@
       <button id="nextBtn">Next</button>
     </div>
   </div>
+</form>
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
 
  <script>
   const webAppUrl = "https://script.google.com/macros/s/AKfycbxqPmEyodUfyS-prFcfB0pQWRjRiCwbYcWcic9iRL9xeBM1h32rYV8XqFZfqzLd6Meg/exec"; // replace with your URL
@@ -460,6 +464,21 @@
       updateForm();
     }
   });
+
+   nextBtn.addEventListener('click', () => {
+  if (current === 0 && !validateName()) return;
+
+  if (current < sections.length - 1) {
+    current++;
+    updateForm();
+
+    // Change button to submit on last step
+    if (current === sections.length - 1) {
+      nextBtn.type = "submit"; // allow form submission
+    }
+  }
+});
+
 </script>
 
 </body>
