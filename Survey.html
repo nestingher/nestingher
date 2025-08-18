@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nesting Her Survey</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #e8eafc, #fceff9);
+      color: #333;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    h2 {
+      text-align: center;
+      color: #6a4c93;
+      margin-bottom: 20px;
+    }
+
+    .progress-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .progress-step {
+      width: 28px;
+      height: 28px;
+      background: #ddd;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .progress-step.active {
+      background: #a084ca;
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .progress-bar {
+      position: relative;
+      flex: 1;
+      height: 4px;
+      background: #eee;
+      top: 12px;
+      margin: 0 10px;
+      border-radius: 2px;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #a084ca, #ffafcc);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .form-section {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .form-section.active {
+      display: block;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #f1e9f7;
+      border-radius: 15px;
+      background: #faf7fd;
+    }
+
+    .question label {
+      font-weight: 600;
+      color: #444;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      outline: none;
+      transition: border 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    textarea:focus {
+      border-color: #a084ca;
+    }
+
+    .options label {
+      display: block;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+
+    input[type="radio"] {
+      accent-color: #a084ca;
+    }
+
+    .error {
+      color: #e63946;
+      font-size: 13px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .valid {
+      border-color: #2a9d8f !important;
+    }
+
+    .invalid {
+      border-color: #e63946 !important;
+    }
+
+    button {
+      background: linear-gradient(90deg, #a084ca, #ffafcc);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #6a4c93, #ff8fab);
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    /* Thank You Screen */
+    #thankYou {
+      display: none;
+      text-align: center;
+      padding: 40px;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    #thankYou h3 {
+      color: #6a4c93;
+      margin-bottom: 15px;
+    }
+
+    #thankYou p {
+      color: #555;
+      font-size: 16px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Nesting Her – Wellness Survey</h2>
+
+    <div class="progress-container">
+      <div class="progress-step active">1</div>
+      <div class="progress-bar"><div class="progress-bar-fill"></div></div>
+      <div class="progress-step">2</div>
+      <div class="progress-bar"><div class="progress-bar-fill"></div></div>
+      <div class="progress-step">3</div>
+      <div class="progress-bar"><div class="progress-bar-fill"></div></div>
+      <div class="progress-step">4</div>
+      <div class="progress-bar"><div class="progress-bar-fill"></div></div>
+      <div class="progress-step">5</div>
+    </div>
+
+    <!-- Sections -->
+    <div id="form-content">
+      <!-- Section 1: Demographics -->
+      <div class="form-section active">
+        <div class="question">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required />
+          <div class="error" id="nameError">Name is required.</div>
+        </div>
+        <div class="question">
+          <label>Age group</label>
+          <div class="options">
+            <label><input type="radio" name="age" value="Under 20"> Under 20</label>
+            <label><input type="radio" name="age" value="21-30"> 21-30</label>
+            <label><input type="radio" name="age" value="31-40"> 31-40</label>
+            <label><input type="radio" name="age" value="41-50"> 41-50</label>
+            <label><input type="radio" name="age" value="Above 50"> Above 50</label>
+          </div>
+        </div>
+        <div class="question">
+          <label for="location">Location</label>
+          <input type="text" id="location" name="location" placeholder="Enter your city or region" />
+        </div>
+        <div class="question">
+          <label>Marital status</label>
+          <div class="options">
+            <label><input type="radio" name="marital" value="Single"> Single</label>
+            <label><input type="radio" name="marital" value="Married"> Married</label>
+            <label><input type="radio" name="marital" value="Divorced"> Divorced</label>
+            <label><input type="radio" name="marital" value="Widowed"> Widowed</label>
+          </div>
+        </div>
+        <div class="question">
+          <label>Do you have children?</label>
+          <div class="options">
+            <label><input type="radio" name="children" value="Yes"> Yes</label>
+            <label><input type="radio" name="children" value="No"> No</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Lifestyle -->
+      <div class="form-section">
+        <div class="question">
+          <label>How often do you exercise?</label>
+          <div class="options">
+            <label><input type="radio" name="exercise" value="Daily"> Daily</label>
+            <label><input type="radio" name="exercise" value="Few times a week"> Few times a week</label>
+            <label><input type="radio" name="exercise" value="Rarely"> Rarely</label>
+            <label><input type="radio" name="exercise" value="Never"> Never</label>
+          </div>
+        </div>
+        <div class="question">
+          <label>How many hours do you sleep on average?</label>
+          <div class="options">
+            <label><input type="radio" name="sleep" value="Less than 5"> Less than 5</label>
+            <label><input type="radio" name="sleep" value="5-7"> 5-7</label>
+            <label><input type="radio" name="sleep" value="7-9"> 7-9</label>
+            <label><input type="radio" name="sleep" value="More than 9"> More than 9</label>
+          </div>
+        </div>
+        <div class="question">
+          <label>Do you follow a specific diet?</label>
+          <textarea name="diet" placeholder="Describe your diet (if any)"></textarea>
+        </div>
+      </div>
+
+      <!-- Section 3: Mental Well-being -->
+      <div class="form-section">
+        <div class="question">
+          <label>How often do you feel stressed?</label>
+          <div class="options">
+            <label><input type="radio" name="stress" value="Always"> Always</label>
+            <label><input type="radio" name="stress" value="Often"> Often</label>
+            <label><input type="radio" name="stress" value="Sometimes"> Sometimes</label>
+            <label><input type="radio" name="stress" value="Rarely"> Rarely</label>
+          </div>
+        </div>
+        <div class="question">
+          <label>What helps you relax?</label>
+          <textarea name="relax" placeholder="Write your answer"></textarea>
+        </div>
+        <div class="question">
+          <label>Do you meditate or practice mindfulness?</label>
+          <div class="options">
+            <label><input type="radio" name="meditation" value="Yes"> Yes</label>
+            <label><input type="radio" name="meditation" value="No"> No</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Health -->
+      <div class="form-section">
+        <div class="question">
+          <label>How would you describe your overall health?</label>
+          <div class="options">
+            <label><input type="radio" name="health" value="Excellent"> Excellent</label>
+            <label><input type="radio" name="health" value="Good"> Good</label>
+            <label><input type="radio" name="health" value="Fair"> Fair</label>
+            <label><input type="radio" name="health" value="Poor"> Poor</label>
+          </div>
+        </div>
+        <div class="question">
+          <label>Do you have any chronic health conditions?</label>
+          <textarea name="conditions" placeholder="List any chronic conditions"></textarea>
+        </div>
+        <div class="question">
+          <label>How often do you visit a healthcare provider?</label>
+          <div class="options">
+            <label><input type="radio" name="doctor" value="Regularly"> Regularly</label>
+            <label><input type="radio" name="doctor" value="Occasionally"> Occasionally</label>
+            <label><input type="radio" name="doctor" value="Rarely"> Rarely</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Support & Resources -->
+      <div class="form-section">
+        <div class="question">
+          <label>Do you have a strong support system (family/friends)?</label>
+          <div class="options">
+            <label><input type="radio" name="support" value="Yes"> Yes</label>
+            <label><input type="radio" name="support" value="No"> No</label>
+          </div>
+        </div>
+        <div class="question">
+          <label>What resources would help improve your well-being?</label>
+          <textarea name="resources" placeholder="Write your suggestions"></textarea>
+        </div>
+        <div class="question">
+          <label for="phone">Phone Number (required)</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required />
+        </div>
+        <div class="question">
+          <label for="email">Email (optional, for follow-up)</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Thank You Screen -->
+    <div id="thankYou">
+      <h3>🎉 Thank you for completing the survey!</h3>
+      <p>We appreciate your input and will use it to improve <b>Nesting Her</b>.</p>
+         <button id="homeBtn">home</button>
+
+    </div>
+
+    <div class="button-container">
+      <button id="prevBtn" disabled>Previous</button>
+      <button id="nextBtn">Next</button>
+    </div>
+  </div>
+
+ <script>
+  const webAppUrl = "https://script.google.com/macros/s/AKfycbxqPmEyodUfyS-prFcfB0pQWRjRiCwbYcWcic9iRL9xeBM1h32rYV8XqFZfqzLd6Meg/exec"; // replace with your URL
+  const sections = document.querySelectorAll('.form-section');
+  const nextBtn = document.getElementById('nextBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const steps = document.querySelectorAll('.progress-step');
+  const fills = document.querySelectorAll('.progress-bar-fill');
+  const nameInput = document.getElementById('name');
+  const nameError = document.getElementById('nameError');
+  let current = 0;  
+
+  function collectResponses() {
+    const data = {
+      name: document.getElementById('name').value,
+      age: document.querySelector('input[name="age"]:checked')?.value || "",
+      location: document.getElementById('location').value,
+      marital: document.querySelector('input[name="marital"]:checked')?.value || "",
+      children: document.querySelector('input[name="children"]:checked')?.value || "",
+      exercise: document.querySelector('input[name="exercise"]:checked')?.value || "",
+      sleep: document.querySelector('input[name="sleep"]:checked')?.value || "",
+      diet: document.querySelector('textarea[name="diet"]').value,
+      stress: document.querySelector('input[name="stress"]:checked')?.value || "",
+      relax: document.querySelector('textarea[name="relax"]').value,
+      meditation: document.querySelector('input[name="meditation"]:checked')?.value || "",
+      health: document.querySelector('input[name="health"]:checked')?.value || "",
+      conditions: document.querySelector('textarea[name="conditions"]').value,
+      doctor: document.querySelector('input[name="doctor"]:checked')?.value || "",
+      support: document.querySelector('input[name="support"]:checked')?.value || "",
+      resources: document.querySelector('textarea[name="resources"]').value,
+      phone: document.getElementById('phone').value,
+      email: document.getElementById('email').value
+    };
+
+    fetch(webAppUrl, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" }
+    })
+    .then(res => res.text())
+    .then(txt => console.log("Submitted:", txt))
+    .catch(err => console.error("Error:", err));
+  }
+
+  function validateName() {
+    if (nameInput.value.trim().length > 0) {
+      nameInput.classList.remove('invalid');
+      nameInput.classList.add('valid');
+      nameError.style.display = 'none';
+      return true;
+    } else {
+      nameInput.classList.remove('valid');
+      nameInput.classList.add('invalid');
+      nameError.style.display = 'block';
+      return false;
+    }
+  }
+
+  nameInput.addEventListener('input', validateName);
+
+  function updateForm() {
+    sections.forEach((s, i) => {
+      s.classList.toggle('active', i === current);
+    });
+    steps.forEach((step, i) => {
+      step.classList.toggle('active', i <= current);
+    });
+    fills.forEach((fill, i) => {
+      fill.style.width = i < current ? '100%' : '0%';
+    });
+    prevBtn.disabled = current === 0;
+    nextBtn.textContent = current === sections.length - 1 ? 'Submit' : 'Next';
+  }
+
+  // ✅ Single click handler for Next
+  nextBtn.addEventListener('click', () => {
+    if (current === 0 && !validateName()) return;
+
+    if (current < sections.length - 1) {
+      current++;
+      updateForm();
+    } else {
+      // Submit data to Google Sheets
+      collectResponses();
+
+      // Show thank you screen
+      document.getElementById("form-content").style.display = "none";
+      document.querySelector(".button-container").style.display = "none";
+      document.getElementById("thankYou").style.display = "block";
+
+      // Fill progress bar
+      fills.forEach(fill => fill.style.width = '100%');
+      steps.forEach(step => step.classList.add('active'));
+    }
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if (current > 0) {
+      current--;
+      updateForm();
+    }
+  });
+</script>
+
+</body>
+</html>
