@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nesting Her Survey</title>
+     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #e8eafc, #fceff9);
+      color: #333;
+    }
+
+    .container {
+      width: 100%;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    h2 {
+      text-align: center;
+      color: #6a4c93;
+      margin-bottom: 20px;
+    }
+
+    .progress-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .progress-step {
+      width: 28px;
+      height: 28px;
+      background: #ddd;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .progress-step.active {
+      background: #a084ca;
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .progress-bar {
+      position: relative;
+      flex: 1;
+      height: 4px;
+      background: #eee;
+      top: 12px;
+      margin: 0 10px;
+      border-radius: 2px;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #a084ca, #ffafcc);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .form-section {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .form-section.active {
+      display: block;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #f1e9f7;
+      border-radius: 15px;
+      background: #faf7fd;
+    }
+
+    .question label {
+      font-weight: 600;
+      color: #444;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      outline: none;
+      transition: border 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    textarea:focus {
+      border-color: #a084ca;
+    }
+
+    .options label {
+      display: block;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+
+    input[type="radio"] {
+      accent-color: #a084ca;
+    }
+
+    .error {
+      color: #e63946;
+      font-size: 13px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .valid {
+      border-color: #2a9d8f !important;
+    }
+
+    .invalid {
+      border-color: #e63946 !important;
+    }
+
+    button {
+      background: linear-gradient(90deg, #a084ca, #ffafcc);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #6a4c93, #ff8fab);
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    /* Thank You Screen */
+    #thankYou {
+      display: none;
+      text-align: center;
+      padding: 40px;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    #thankYou h3 {
+      color: #6a4c93;
+      margin-bottom: 15px;
+    }
+
+    #thankYou p {
+      color: #555;
+      font-size: 16px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+      <header>
+        <nav class="container">
+            <a href="#" class="logo">Nesting Her</a>
+            
+
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+              
+            </ul>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+        </nav>
+    </header>
+  <div class="container">
+    <h2>Nesting Her – Wellness Survey</h2>
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSebj57wJAmDJ5vmAD00BqC7s2IGhN2T5RGVMEi2ZciiBlS7YA/viewform?embedded=true" width="640" height="1321" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+ <script>
+  const webAppUrl = "https://script.google.com/macros/s/AKfycbxqPmEyodUfyS-prFcfB0pQWRjRiCwbYcWcic9iRL9xeBM1h32rYV8XqFZfqzLd6Meg/exec"; // replace with your URL
+  const sections = document.querySelectorAll('.form-section');
+  const nextBtn = document.getElementById('nextBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const steps = document.querySelectorAll('.progress-step');
+  const fills = document.querySelectorAll('.progress-bar-fill');
+  const nameInput = document.getElementById('name');
+  const nameError = document.getElementById('nameError');
+  let current = 0;  
+
+  function collectResponses() {
+    const data = {
+      name: document.getElementById('name').value,
+      age: document.querySelector('input[name="age"]:checked')?.value || "",
+      location: document.getElementById('location').value,
+      marital: document.querySelector('input[name="marital"]:checked')?.value || "",
+      children: document.querySelector('input[name="children"]:checked')?.value || "",
+      exercise: document.querySelector('input[name="exercise"]:checked')?.value || "",
+      sleep: document.querySelector('input[name="sleep"]:checked')?.value || "",
+      diet: document.querySelector('textarea[name="diet"]').value,
+      stress: document.querySelector('input[name="stress"]:checked')?.value || "",
+      relax: document.querySelector('textarea[name="relax"]').value,
+      meditation: document.querySelector('input[name="meditation"]:checked')?.value || "",
+      health: document.querySelector('input[name="health"]:checked')?.value || "",
+      conditions: document.querySelector('textarea[name="conditions"]').value,
+      doctor: document.querySelector('input[name="doctor"]:checked')?.value || "",
+      support: document.querySelector('input[name="support"]:checked')?.value || "",
+      resources: document.querySelector('textarea[name="resources"]').value,
+      phone: document.getElementById('phone').value,
+      email: document.getElementById('email').value
+    };
+
+    fetch(webAppUrl, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" }
+    })
+    .then(res => res.text())
+    .then(txt => console.log("Submitted:", txt))
+    .catch(err => console.error("Error:", err));
+  }
+
+  function validateName() {
+    if (nameInput.value.trim().length > 0) {
+      nameInput.classList.remove('invalid');
+      nameInput.classList.add('valid');
+      nameError.style.display = 'none';
+      return true;
+    } else {
+      nameInput.classList.remove('valid');
+      nameInput.classList.add('invalid');
+      nameError.style.display = 'block';
+      return false;
+    }
+  }
+
+  nameInput.addEventListener('input', validateName);
+
+  function updateForm() {
+    sections.forEach((s, i) => {
+      s.classList.toggle('active', i === current);
+    });
+    steps.forEach((step, i) => {
+      step.classList.toggle('active', i <= current);
+    });
+    fills.forEach((fill, i) => {
+      fill.style.width = i < current ? '100%' : '0%';
+    });
+    prevBtn.disabled = current === 0;
+    nextBtn.textContent = current === sections.length - 1 ? 'Submit' : 'Next';
+  }
+
+  // ✅ Single click handler for Next
+  nextBtn.addEventListener('click', () => {
+    if (current === 0 && !validateName()) return;
+
+    if (current < sections.length - 1) {
+      current++;
+      updateForm();
+    } else {
+      // Submit data to Google Sheets
+      collectResponses();
+
+      // Show thank you screen
+      document.getElementById("form-content").style.display = "none";
+      document.querySelector(".button-container").style.display = "none";
+      document.getElementById("thankYou").style.display = "block";
+
+      // Fill progress bar
+      fills.forEach(fill => fill.style.width = '100%');
+      steps.forEach(step => step.classList.add('active'));
+    }
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if (current > 0) {
+      current--;
+      updateForm();
+    }
+  });
+
+   nextBtn.addEventListener('click', () => {
+  if (current === 0 && !validateName()) return;
+
+  if (current < sections.length - 1) {
+    current++;
+    updateForm();
+
+    // Change button to submit on last step
+    if (current === sections.length - 1) {
+      nextBtn.type = "submit"; // allow form submission
+    }
+  }
+});
+
+</script>
+
+</body>
+</html>
