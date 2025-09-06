@@ -153,7 +153,9 @@ section {
 header {
     background: #fff;
     box-shadow: 0 4px 15px rgba(0,0,0,0.07);
-    position: sticky;
+    position: sticky;  
+ display: flex;
+      justify-content: space-between;
     top: 0;
     z-index: 100;
     width: 100%;
