@@ -73,6 +73,7 @@ body {
       justify-content: space-between;
       align-items: center;
       background-color:  #fff; /* Deep purple */
+     color:#e88b8b;
       padding: 10px 20px;
     }
 
@@ -80,7 +81,7 @@ body {
     .navbar .logo {
       display: flex;
       align-items: center;
-      color: white;
+      color: #e88b8b;
       font-size: 20px;
       font-weight: bold;
       text-decoration: none;
