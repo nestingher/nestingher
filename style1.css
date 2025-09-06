@@ -106,14 +106,14 @@ body {
     }
 
     .navbar ul li a {
-      color:  #6c6c6c;
+      color:  #e88b8b;
       text-decoration: none;
       font-size: 16px;
       transition: color 0.3s;
     }
 
     .navbar ul li a:hover {
-      color: #ffcc00; /* Highlight on hover */
+      color:#63b1ab; /* Highlight on hover */
     }
 h1, h2 {
     color: var(--dark-color);
