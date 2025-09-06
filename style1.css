@@ -105,7 +105,7 @@ body {
     }
 
     .navbar ul li a {
-      color: white;
+      color:  #6c6c6c;
       text-decoration: none;
       font-size: 16px;
       transition: color 0.3s;
