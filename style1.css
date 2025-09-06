@@ -126,7 +126,7 @@ nav {
 }
 
     /* Logo */
-    .navbar .logo {
+    .container .logo {
       display: flex;
       align-items: center;
       color: white;
@@ -135,7 +135,7 @@ nav {
       text-decoration: none;
     }
 
-    .navbar .logo img {
+    .container .logo img {
       height: 40px;
       margin-right: 10px;
     }
