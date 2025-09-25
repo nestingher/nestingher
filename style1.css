@@ -595,6 +595,21 @@ footer p {
 
     /* Footer responsive rules are handled by flexbox direction */
 }
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .menu-toggle {
+        display: none; /* hide hamburger if menu is always visible */
+    }
+}
 
 @media (min-width: 768px) {
     .footer-container {
